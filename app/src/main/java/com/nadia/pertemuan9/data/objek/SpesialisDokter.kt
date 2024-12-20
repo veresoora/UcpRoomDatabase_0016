@@ -1,4 +1,4 @@
-package com.nadia.pertemuan9.data.object
+package com.nadia.pertemuan9.data.objek
 
 object SpesialisDokter {
     val options = listOf(
