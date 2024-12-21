@@ -196,7 +196,7 @@ fun FormJadwal(
             modifier = Modifier.fillMaxWidth(),
             value = jadwalEvent.nomorhp,
             onValueChange = {
-                onValueChange(jadwalEvent.copy(namapasien = it))
+                onValueChange(jadwalEvent.copy(nomorhp = it))
             },
             label = {
                 Text("Nomor Hp Pasien")
