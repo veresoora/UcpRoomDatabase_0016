@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.nadia.pertemuan9.data.entity.Dokter
 import com.nadia.pertemuan9.data.entity.Jadwal
 import kotlinx.coroutines.flow.Flow
 
@@ -18,6 +19,9 @@ interface JadwalDao {
 
     @Query("SELECT * FROM jadwal WHERE idjadwal = :idjadwal")
     fun getJadwal(idjadwal : Int): Flow<Jadwal>
+
+    @Query("SELECT * FROM dokter ORDER BY nama ASC")
+    fun getNamaDokter(): Flow<List<Dokter>>
 
     @Delete
     suspend fun deleteJadwal (jadwal: Jadwal)
