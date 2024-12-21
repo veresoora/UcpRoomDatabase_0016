@@ -201,7 +201,7 @@ fun FormJadwal(
             label = {
                 Text("Nomor Hp Pasien")
             },
-            isError = errorState.namapasien != null,
+            isError = errorState.nomorhp != null,
             placeholder = {
                 Text("Masukkan Nomor Hp Pasien")
             },
