@@ -7,6 +7,8 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.nadia.pertemuan9.KlinikApp
 import com.nadia.pertemuan9.ui.viewmodel.dokter.DokterViewModel
 import com.nadia.pertemuan9.ui.viewmodel.dokter.HomeDokterViewModel
+import com.nadia.pertemuan9.ui.viewmodel.jadwal.HomeJadwalViewModel
+import com.nadia.pertemuan9.ui.viewmodel.jadwal.JadwalViewModel
 
 object PenyediaViewModel {
     val Factory = viewModelFactory {
@@ -19,6 +21,18 @@ object PenyediaViewModel {
         initializer {
             HomeDokterViewModel(
                 klinikApp().containerApp.repositoryDokter
+            )
+        }
+
+        initializer {
+            JadwalViewModel(
+                klinikApp().containerApp.repositoryJadwal
+            )
+        }
+
+        initializer {
+            HomeJadwalViewModel(
+                klinikApp().containerApp.repositoryJadwal
             )
         }
     }
