@@ -1,6 +1,7 @@
 package com.nadia.pertemuan9.repository
 
 import com.nadia.pertemuan9.data.dao.JadwalDao
+import com.nadia.pertemuan9.data.entity.Dokter
 import com.nadia.pertemuan9.data.entity.Jadwal
 import kotlinx.coroutines.flow.Flow
 
@@ -25,5 +26,9 @@ class LocalRepositoryJadwal (
 
     override fun getJadwal(idjadwal: Int): Flow<Jadwal> {
         return jadwalDao.getJadwal(idjadwal)
+    }
+
+    override fun getNamaDokter(): Flow<List<Dokter>> {
+        return jadwalDao.getNamaDokter()
     }
 }
