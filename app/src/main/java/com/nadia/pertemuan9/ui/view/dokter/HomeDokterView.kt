@@ -205,10 +205,10 @@ fun CardDokter(
 ) {
     fun spesialisColor(spesialis: String): Color {
         return when (spesialis) {
-            "Spesialis Anak" -> Color(0xFF42A5F5)
-            "Spesialis Bedah Saraf" -> Color(0xFFAB47BC)
-            "Spesialis Akupuntur Medik" -> Color(0xFF26A69A)
-            "Spesialis Bedah" -> Color(0xFF66BB6A)
+            "Dokter Spesialis Umum" -> Color(0xFF42A5F5)
+            "Dokter Spesialis Anak" -> Color(0xFFAB47BC)
+            "Dokter Spesialis Bedah" -> Color(0xFF26A69A)
+            "Dokter Spesialis Obgyn" -> Color(0xFF66BB6A)
             else -> Color(0xFF757575)
         }
     }
