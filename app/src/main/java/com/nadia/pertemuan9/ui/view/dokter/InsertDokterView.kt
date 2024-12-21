@@ -80,52 +80,50 @@ fun InsertDokterView(
         modifier = Modifier
             .background(color = Color(0xFF00AAEC))
             .fillMaxSize()
-            .padding(top = 10.dp)
     ) {
-        Row(
-            modifier = modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            IconButton(onClick = onBack) {
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "",
-                    modifier = Modifier.size(35.dp),
-                    tint = Color.White
-                )
-            }
-
-            Text(
-                text = "Tambah Dokter",
-                fontWeight = FontWeight.Bold,
-                fontSize = 25.sp,
-                color = Color.White
+        IconButton(onClick = onBack, modifier = Modifier.padding(top = 30.dp)) {
+            Icon(
+                imageVector = Icons.Default.ArrowBack,
+                contentDescription = "",
+                modifier = Modifier.size(35.dp),
+                tint = Color.White
             )
-            Box {  }
-            Box {  }
         }
 
         Card (
             modifier = Modifier.fillMaxSize()
         ) {
-            InsertBodyDokter (
-                uiState = uiState,
-                onValueChange = { updatedEvent ->
-                    viewModel.UpdateState(updatedEvent)
-                },
-                onClick = {
-                    coroutineScope.launch {
-                        if (viewModel.validateFields()){
-                            viewModel.saveData()
-                            delay(500)
-                            withContext(Dispatchers.Main) {
-                                onNavigate()
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "Tambah Dokter",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 30.sp,
+                    color = Color.Black,
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+
+                InsertBodyDokter (
+                    uiState = uiState,
+                    onValueChange = { updatedEvent ->
+                        viewModel.UpdateState(updatedEvent)
+                    },
+                    onClick = {
+                        coroutineScope.launch {
+                            if (viewModel.validateFields()){
+                                viewModel.saveData()
+                                delay(500)
+                                withContext(Dispatchers.Main) {
+                                    onNavigate()
+                                }
                             }
                         }
                     }
-                }
-            )
+                )
+            }
+
         }
     }
 }
@@ -151,7 +149,8 @@ fun InsertBodyDokter(
         )
         Button(
             onClick = onClick,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .padding(horizontal = 50.dp),
             colors = ButtonColors(
                 containerColor = Color(0xFF00AAEC),
                 contentColor = Color.White,

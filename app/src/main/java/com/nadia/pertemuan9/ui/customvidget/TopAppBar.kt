@@ -39,8 +39,6 @@ import androidx.compose.ui.unit.sp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBar(
-    onBack: () -> Unit,
-    showButtonBack: Boolean = true,
     showButtonJadwal: Boolean = true,
     showButtonDokter: Boolean = true,
     showSearch: Boolean = true,
@@ -58,10 +56,7 @@ fun TopAppBar(
         modifier = modifier
             .fillMaxWidth()
             .background(
-                brush = Brush.horizontalGradient(
-                    colors = listOf(Color(0xFF00AAEC), Color(0xFF007BB8))
-                ),
-                shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)
+                color = Color.Transparent
             )
             .padding(16.dp)
     ) {
@@ -70,29 +65,16 @@ fun TopAppBar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                if (showButtonBack){
-                    IconButton(onClick = onBack){
-                        Icon(
-                            //painter = painterResource(id = R.drawable.ic_logo),
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Logo",
-                            tint = Color.White,
-                            modifier = Modifier.size(40.dp),
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = title,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp,
-                    color = Color.White
-                )
-            }
+            Text(
+                text = title,
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp,
+                color = Color.White
+            )
+
             Icon(
                 imageVector = Icons.Default.AccountCircle,
-                contentDescription = "Avatar",
+                contentDescription = "",
                 tint = Color.White,
                 modifier = Modifier.size(40.dp)
             )
@@ -141,7 +123,7 @@ fun TopAppBar(
                     ),
                     shape = RoundedCornerShape(20.dp)
                 ) {
-                    Text(text = titleButtonDokter, color = Color(0xFF007BB8))
+                    Text(text = titleButtonDokter, color = Color.Black)
                 }
             }
 
@@ -153,7 +135,7 @@ fun TopAppBar(
                     ),
                     shape = RoundedCornerShape(20.dp)
                 ) {
-                    Text(text = titleButtonJadwal, color = Color(0xFF007BB8))
+                    Text(text = titleButtonJadwal, color = Color.Black)
                 }
             }
         }

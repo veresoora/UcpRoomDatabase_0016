@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.sharp.DateRange
 import androidx.compose.material.icons.sharp.Home
+import androidx.compose.material.icons.sharp.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
@@ -59,54 +61,45 @@ fun HomeDokterView(
             .fillMaxSize()
             .padding(top = 10.dp)
     ) {
-        Row(
-            modifier = modifier.fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = "Klinik Sehat",
-                fontWeight = FontWeight.Bold,
-                fontSize = 25.sp,
-                color = Color.White
-            )
-
-            Icon(
-                imageVector = Icons.Default.AccountCircle,
-                contentDescription = "",
-                modifier = Modifier.size(35.dp),
-                tint = Color.White
-            )
-        }
+        TopAppBar(
+            title = "Welcome,",
+            modifier = Modifier.padding(top = 16.dp).fillMaxWidth(),
+            navigateKeDokter = onAddDokter,
+            navigateKeJadwal = navigateLihatJadwal,
+            showButtonDokter = true,
+            showButtonJadwal = true,
+            showSearch = true,
+            titleSearch = "Cari dokter",
+            titleButtonDokter = "Tambah Dokter",
+            titleButtonJadwal = "Lihat Jadwal"
+        )
 
         Card (
             modifier = Modifier.fillMaxSize(),
             shape = RectangleShape
         ) {
-            TopAppBar(
-                title = "Daftar Dokter",
-                showButtonBack = false,
-                onBack = { },
-                modifier = Modifier.padding(16.dp),
-                navigateKeDokter = onAddDokter,
-                navigateKeJadwal = navigateLihatJadwal,
-                showButtonDokter = true,
-                showButtonJadwal = true,
-                showSearch = true,
-                titleSearch = "Cari dokter",
-                titleButtonDokter = "Tambah Dokter",
-                titleButtonJadwal = "Lihat Jadwal"
-            )
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "Daftar Dokter",
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(top = 10.dp),
+                    fontSize = 30.sp,
+                    color = Color.Black
+                )
 
-            val homeDokterUiState by viewModel.homeDokterUiState.collectAsState()
+                val homeDokterUiState by viewModel.homeDokterUiState.collectAsState()
 
-            BodyHomeDokterView(
-                homeDokterUiState = homeDokterUiState,
-                onClick = {
-                    onDetailClick(it)
-                },
-            )
+                BodyHomeDokterView(
+                    homeDokterUiState = homeDokterUiState,
+                    onClick = {
+                        onDetailClick(it)
+                    },
+                )
+            }
         }
     }
 }
@@ -161,7 +154,7 @@ fun BodyHomeDokterView(
                 onClick = {
                     onClick(it)
                 },
-                modifier = modifier
+                modifier = modifier.padding(top = 10.dp)
             )
         }
     }
@@ -176,7 +169,9 @@ fun ListDokter(
     LazyColumn(
         modifier = modifier
             .background(
-                color = Color.White,
+                brush = Brush.verticalGradient(
+                    colors = listOf(Color(0xFF00AAEC), Color(0xFF007BB8))
+                ),
                 shape = RoundedCornerShape(10.dp)
             )
             .fillMaxSize()
@@ -227,7 +222,7 @@ fun CardDokter(
                 imageVector = Icons.Filled.AccountCircle,
                 contentDescription = "",
                 modifier = Modifier.size(100.dp),
-                tint = Color.Black
+                tint = Color(0xFF007BB8)
             )
             Column(
                 modifier = Modifier.padding(8.dp)
@@ -239,7 +234,8 @@ fun CardDokter(
                     Text(
                         text = dokter.nama,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp
+                        fontSize = 20.sp,
+                        color = Color.Black
                     )
                 }
 
@@ -263,14 +259,16 @@ fun CardDokter(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = Icons.Sharp.Home,
-                        contentDescription = ""
+                        imageVector = Icons.Sharp.LocationOn,
+                        contentDescription = "",
+                        tint = Color.Black
                     )
                     Spacer(modifier = Modifier.padding(4.dp))
                     Text(
                         text = dokter.klinik,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
+                        fontSize = 16.sp,
+                        color = Color.Black
                     )
                 }
 
@@ -282,13 +280,15 @@ fun CardDokter(
                 ) {
                     Icon(
                         imageVector = Icons.Sharp.DateRange,
-                        contentDescription = ""
+                        contentDescription = "",
+                        tint = Color.Black
                     )
                     Spacer(modifier = Modifier.padding(4.dp))
                     Text(
                         text = dokter.jamKerja,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
+                        fontSize = 16.sp,
+                        color = Color.Black
                     )
                 }
             }
