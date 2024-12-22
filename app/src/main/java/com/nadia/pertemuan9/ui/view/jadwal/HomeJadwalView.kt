@@ -69,7 +69,7 @@ fun HomejadwalView(
             showButtonJadwal = true,
             showSearch = true,
             titleSearch = "Cari jadwal",
-            titleButtonJadwal = "Tambah jadwal",
+            titleButtonJadwal = "Tambah Jadwal",
             titleButtonDokter = "Lihat Dokter"
         )
 
