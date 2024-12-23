@@ -1,5 +1,6 @@
 package com.nadia.pertemuan9.ui.view.dokter
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -36,10 +37,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.nadia.pertemuan9.R
 import com.nadia.pertemuan9.ui.customvidget.TopAppBar
 import com.nadia.pertemuan9.data.entity.Dokter
 import com.nadia.pertemuan9.ui.viewmodel.PenyediaViewModel
@@ -203,7 +206,6 @@ fun CardDokter(
             "Dokter Spesialis Umum" -> Color(0xFF42A5F5)
             "Dokter Spesialis Anak" -> Color(0xFFAB47BC)
             "Dokter Spesialis Bedah" -> Color(0xFF26A69A)
-            "Dokter Spesialis Obgyn" -> Color(0xFF66BB6A)
             else -> Color(0xFF757575)
         }
     }
@@ -279,7 +281,7 @@ fun CardDokter(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = Icons.Sharp.DateRange,
+                        painter = painterResource(id = R.drawable.time) ,
                         contentDescription = "",
                         tint = Color.Black
                     )
