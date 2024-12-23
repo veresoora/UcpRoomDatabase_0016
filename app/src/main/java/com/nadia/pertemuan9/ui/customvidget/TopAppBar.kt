@@ -84,7 +84,7 @@ fun TopAppBar(
             Image(
                 painter = painterResource(id = R.drawable.logoo),
                 contentDescription = "logo",
-                modifier = Modifier.size(80.dp)
+                modifier = Modifier.size(60.dp)
                     .clip(CircleShape)
 
             )
