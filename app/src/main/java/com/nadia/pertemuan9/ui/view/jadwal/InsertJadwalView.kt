@@ -36,6 +36,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.nadia.pertemuan9.data.entity.Dokter
 import com.nadia.pertemuan9.ui.customvidget.DynamicSelectedTextField
 import com.nadia.pertemuan9.ui.viewmodel.PenyediaViewModel
 import com.nadia.pertemuan9.ui.viewmodel.jadwal.FormJadwalErrorState
@@ -159,7 +160,7 @@ fun FormJadwal(
     jadwalEvent: JadwalEvent = JadwalEvent(),
     onValueChange: (JadwalEvent) -> Unit,
     errorState: FormJadwalErrorState = FormJadwalErrorState(),
-    viewModel: JadwalViewModel = viewModel(),
+    namaDokterList: List<Dokter>,
     modifier: Modifier = Modifier
 ){
     var chosenDropdown by remember { mutableStateOf("") }
