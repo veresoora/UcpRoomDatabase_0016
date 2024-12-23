@@ -1,5 +1,6 @@
 package com.nadia.pertemuan9.ui.customvidget
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,10 +11,15 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -30,11 +36,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.nadia.pertemuan9.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,11 +81,12 @@ fun TopAppBar(
                 color = Color.White
             )
 
-            Icon(
-                imageVector = Icons.Default.AccountCircle,
-                contentDescription = "",
-                tint = Color.White,
-                modifier = Modifier.size(40.dp)
+            Image(
+                painter = painterResource(id = R.drawable.logoo),
+                contentDescription = "logo",
+                modifier = Modifier.size(80.dp)
+                    .clip(CircleShape)
+
             )
         }
 
@@ -123,7 +133,13 @@ fun TopAppBar(
                     ),
                     shape = RoundedCornerShape(20.dp)
                 ) {
-                    Text(text = titleButtonDokter, color = Color.Black)
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "",
+                        tint = Color.Black
+                    )
+                    Spacer(modifier = Modifier.padding(start = 5.dp))
+                    Text(text = titleButtonDokter, color = Color.Black, fontWeight = FontWeight.Bold)
                 }
             }
 
@@ -135,7 +151,13 @@ fun TopAppBar(
                     ),
                     shape = RoundedCornerShape(20.dp)
                 ) {
-                    Text(text = titleButtonJadwal, color = Color.Black)
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = "",
+                        tint = Color.Black
+                    )
+                    Spacer(modifier = Modifier.padding(start = 5.dp))
+                    Text(text = titleButtonJadwal, color = Color.Black, fontWeight = FontWeight.Bold)
                 }
             }
         }
