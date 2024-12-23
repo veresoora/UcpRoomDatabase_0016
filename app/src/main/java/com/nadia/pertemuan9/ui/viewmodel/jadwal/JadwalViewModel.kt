@@ -103,6 +103,5 @@ data class FormJadwalErrorState(
 data class JadwalUIState(
     val jadwalEvent: JadwalEvent = JadwalEvent(),
     val isEntryValid: FormJadwalErrorState = FormJadwalErrorState(),
-    val snackBarMessage: String? = null,
-    val namaDokterList: List<Dokter> = emptyList()
+    val snackBarMessage: String? = null
 )
