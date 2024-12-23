@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.nadia.pertemuan9.data.entity.Dokter
+import com.nadia.pertemuan9.data.objek.NamaDokter
 import com.nadia.pertemuan9.ui.customvidget.DynamicSelectedTextField
 import com.nadia.pertemuan9.ui.viewmodel.PenyediaViewModel
 import com.nadia.pertemuan9.ui.viewmodel.jadwal.FormJadwalErrorState
@@ -215,7 +216,7 @@ fun FormJadwal(
 
         DynamicSelectedTextField(
             selectedValue = jadwalEvent.dokter,
-            options = namaDokterList.map { it.nama },
+            options = NamaDokter.namaDokter(),
             label = "Pilih Nama Dokter",
             onValueChangedEvent = {
                 onValueChange(jadwalEvent.copy(dokter = it))
