@@ -216,12 +216,6 @@ fun FormJadwal(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LaunchedEffect (Unit) {
-            viewModel.listNamaDokter.collect { namaDokter ->
-                pilihDokter = namaDokter.map { it.nama }
-            }
-        }
-
         DynamicSelectedTextField(
             selectedValue = chosenDropdown,
             options = pilihDokter,
