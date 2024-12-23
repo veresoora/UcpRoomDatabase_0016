@@ -23,7 +23,6 @@ class UpdateJadwalViewModel (
     private val _idjadwal: Int = checkNotNull(savedStateHandle[AlamatEditJadwal.IDJWL])
 
     init {
-        namaDokterList()
         viewModelScope.launch {
             updateUIState = repositoryJadwal.getJadwal(_idjadwal)
                 .filterNotNull()
@@ -79,15 +78,6 @@ class UpdateJadwalViewModel (
 
     fun resetSnackBarMessage(){
         updateUIState = updateUIState.copy(snackBarMessage = null)
-    }
-
-    private fun namaDokterList() {
-        viewModelScope.launch {
-            repositoryJadwal.getNamaDokter()
-                .collect { dktr ->
-                    updateUIState = updateUIState.copy(namaDokterList = dktr)
-                }
-        }
     }
 }
 

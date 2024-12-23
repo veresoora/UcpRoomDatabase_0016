@@ -64,18 +64,6 @@ class JadwalViewModel(
     fun resetSnackBarMessage(){
         uiState = uiState.copy(snackBarMessage = null)
     }
-
-    fun namaDokterList(){
-        viewModelScope.launch {
-            repositoryJadwal.getNamaDokter().collect{dktr ->
-                uiState = uiState.copy(namaDokterList = dktr)
-            }
-        }
-    }
-
-    init {
-        namaDokterList()
-    }
 }
 
 data class JadwalEvent(
