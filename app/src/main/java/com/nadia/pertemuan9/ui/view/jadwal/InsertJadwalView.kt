@@ -217,8 +217,8 @@ fun FormJadwal(
         Spacer(modifier = Modifier.height(16.dp))
 
         DynamicSelectedTextField(
-            selectedValue = chosenDropdown,
-            options = pilihDokter,
+            selectedValue = jadwalEvent.dokter,
+            options = namaDokterList.map { it.nama },
             label = "Pilih Nama Dokter",
             onValueChangedEvent = {
                 onValueChange(jadwalEvent.copy(dokter = it))
