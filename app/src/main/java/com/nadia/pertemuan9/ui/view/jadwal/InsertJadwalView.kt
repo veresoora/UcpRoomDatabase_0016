@@ -165,8 +165,6 @@ fun FormJadwal(
 ){
     var chosenDropdown by remember { mutableStateOf("") }
 
-    var pilihDokter by remember { mutableStateOf(listOf<String>()) }
-
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
