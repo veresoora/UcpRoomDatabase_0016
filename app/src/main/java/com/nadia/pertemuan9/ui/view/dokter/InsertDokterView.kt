@@ -158,7 +158,11 @@ fun InsertBodyDokter(
                 disabledContainerColor = Color(0xFF00AAEC)
             )
         ) {
-            Text("Simpan")
+            Text(
+                text = "Simpan",
+                fontWeight = FontWeight.Bold,
+                fontSize = 17.sp
+            )
         }
     }
 }
