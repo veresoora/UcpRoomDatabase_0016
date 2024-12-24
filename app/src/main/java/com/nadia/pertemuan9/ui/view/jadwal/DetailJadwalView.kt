@@ -93,7 +93,7 @@ fun DetailJadwalView (
                     BodyDetailJadwal(
                         detailJadwalUiState = detailJadwalUiState,
                         onDeleteClick = {
-                            viewModel.deleteMhs()
+                            viewModel.deleteJdwl()
                             onDeleteClick()
                         }
                     )
